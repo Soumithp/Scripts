@@ -1,0 +1,14 @@
+              precision    recall  f1-score   support
+
+           B       1.00      1.00      1.00       389
+  CD14+ Mono       0.99      1.00      1.00       825
+       CD4 T       0.98      0.99      0.99       860
+       CD8 T       0.96      0.96      0.96       244
+          DC       0.98      0.97      0.98        64
+FCGR3A+ Mono       0.99      0.96      0.97        90
+          NK       0.99      0.97      0.98       151
+    Platelet       1.00      0.90      0.95        49
+
+    accuracy                           0.99      2672
+   macro avg       0.99      0.97      0.98      2672
+weighted avg       0.99      0.99      0.99      2672

@@ -1,0 +1,4 @@
+cells=10685 genes=20292 clusters=19 cell_types=8
+RandomForest: accuracy=0.987 macroF1=0.977
+MLP:          accuracy=0.986 macroF1=0.980
+RF 5-fold CV: 0.984 +/- 0.004
