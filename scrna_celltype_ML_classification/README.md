@@ -82,21 +82,6 @@ Reference panels curated from **PanglaoDB**, **CellMarker 2.0**, and the **Azimu
 Per-class metrics: [`results/classification_report.txt`](results/classification_report.txt) — every
 cell type scores F1 ≥ 0.95. Figures and a fuller walk-through are in [`RESULTS.md`](RESULTS.md).
 
-## Interview notes — key decisions & rationale
-
-- **Why cluster first, then classify?** Cell types aren't labeled in raw data. We derive labels by
-  unsupervised clustering + marker biology, then train a classifier that could label new cells fast
-  without re-clustering.
-- **Why a marker *reference*?** The algorithm can't know which genes mark which cell type — we supply
-  curated panels (PanglaoDB / CellMarker / Azimuth). The Wilcoxon + BH step is the evidence that
-  those panels are actually enriched here.
-- **Why macro-F1, not just accuracy?** Classes are imbalanced (CD4 T ~ thousands, platelets ~ tens).
-  Macro-F1 weights every class equally, so it catches a model that ignores rare types.
-- **How do we know it's not overfitting?** Held-out test set + 5-fold CV (tight ±0.004 spread) +
-  feature importances that match known markers (CD3D, MS4A1, NKG7, LYZ, FCGR3A…).
-- **Why 15% mito / 6,000-gene cutoffs?** Standard 10x PBMC QC — high mito = dying cells, very high
-  gene counts = likely doublets.
-
 ## How to run
 
 1. Open `scrna_analysis.ipynb` in Google Colab.
