@@ -1,6 +1,6 @@
-setwd("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/scRNAseq/organised_2024.09.30")
+setwd("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/scRNAseq/organised_2024.09.30")
 # Step 1: Read and preprocess the Seurat object
-svr_data <- Read10X_h5(filename = "C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/scRNAseq/organised_2024.09.30/hg38_filtered_feature_bc_matrix.h5")
+svr_data <- Read10X_h5(filename = "C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/scRNAseq/organised_2024.09.30/hg38_filtered_feature_bc_matrix.h5")
 svr.seurat.obj <- CreateSeuratObject(counts = svr_data, project = "Svr", min.cells = 3, min.features = 200)
 svr.seurat.obj[["percent.mt"]] <- PercentageFeatureSet(svr.seurat.obj, pattern = "^MT-")
 svr.seurat.obj <- subset(svr.seurat.obj, subset = nFeature_RNA > 200 & nFeature_RNA < 2500 & percent.mt < 10)

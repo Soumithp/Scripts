@@ -1,5 +1,5 @@
 ###to change mouse genes to human genes
-setwd("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/")
+setwd("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/")
 # Load necessary libraries
 library(dplyr)
 library(tidyr)

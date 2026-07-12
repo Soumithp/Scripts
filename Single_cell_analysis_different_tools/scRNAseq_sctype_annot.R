@@ -9,10 +9,10 @@ library("reticulate")
 reticulate::py_install("leidenalg")
 
 
-setwd("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki")
+setwd("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki")
 
 # Step 1: Read and preprocess the Seurat object (as you have done earlier)
-svr_data <- Read10X_h5(filename = "C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/hg38/hg38_filtered_feature_bc_matrix.h5")
+svr_data <- Read10X_h5(filename = "C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/hg38/hg38_filtered_feature_bc_matrix.h5")
 svr.seurat.obj <- CreateSeuratObject(counts = svr_data, project = "Svr", min.cells = 3, min.features = 200)
 svr.seurat.obj[["percent.mt"]] <- PercentageFeatureSet(svr.seurat.obj, pattern = "^MT-")
 VlnPlot(svr.seurat.obj, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3, pt.size = 0.1)
@@ -35,10 +35,10 @@ DimPlot(svr.seurat.obj, reduction = "umap")
 
 
 # Step 2: Read Gene Signatures
-#gene_signatures <- read.table("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/scLiver_MP_signature.txt", header = TRUE, sep = "\t", check.names = FALSE)
+#gene_signatures <- read.table("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/scLiver_MP_signature.txt", header = TRUE, sep = "\t", check.names = FALSE)
 
 
-gene_signatures <- "C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/scLiver_MP_allsig_wodup_sctype_format.xlsx"
+gene_signatures <- "C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/scLiver_MP_allsig_wodup_sctype_format.xlsx"
 tissue<- "Liver"
 # prepare gene sets
 gs_list <- gene_sets_prepare(gene_signatures, tissue)
@@ -84,4 +84,4 @@ cell_annotations <- data.frame(
 )
 
 # Write the data frame to a tab-separated text file
-write.table(cell_annotations, "C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/cell_annotations_scType_scMPliver_allsig_wodup.txt", sep = "\t", row.names = FALSE, quote = FALSE)
+write.table(cell_annotations, "C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/cell_annotations_scType_scMPliver_allsig_wodup.txt", sep = "\t", row.names = FALSE, quote = FALSE)

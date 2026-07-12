@@ -1,4 +1,4 @@
-setwd("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/03.15.2024_RGL")
+setwd("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/03.15.2024_RGL")
 source("IntersampleCorrelation.R")
 
 IntersampleCorrelation(

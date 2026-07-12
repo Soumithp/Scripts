@@ -11,9 +11,9 @@ library(dplyr)
 library(Matrix)
 library(openxlsx)
 
-setwd("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/")
+setwd("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/")
 #reading the filtered data
-svr_data<- Read10X_h5(filename= "C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/hg38/hg38_filtered_feature_bc_matrix.h5")
+svr_data<- Read10X_h5(filename= "C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/hg38/hg38_filtered_feature_bc_matrix.h5")
 svr.seurat.obj<- CreateSeuratObject(counts= svr_data,  project = "Svr", min.cells= 3, min.features= 200)
 ##Qc %mt reads
 svr.seurat.obj[["percent.mt"]] <- PercentageFeatureSet(svr.seurat.obj, pattern = "^MT-")
@@ -54,7 +54,7 @@ DimPlot(svr.seurat.obj, reduction = "umap")
 #########checking the expression 
 ########first to make the gene signatures into a list
 # Step 1: Read and Prepare Gene Signatures
-gene_signatures <- read.table("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/DDR1hepg2_FDR025_sig_20231018_FINAL.txt", header = TRUE, sep = "\t", check.names = FALSE)
+gene_signatures <- read.table("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/DDR1hepg2_FDR025_sig_20231018_FINAL.txt", header = TRUE, sep = "\t", check.names = FALSE)
 
 # Convert gene signatures to a list of gene sets
 gene_list <- lapply(gene_signatures, as.character)
@@ -144,7 +144,7 @@ library(dplyr)
 library(openxlsx)
 
 # Step 1: Read and Prepare Gene Signatures
-gene_signatures <- read.table("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/DDR1hepg2_FDR025_sig_20231018_FINAL.txt", header = TRUE, sep = "\t", check.names = FALSE)
+gene_signatures <- read.table("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/DDR1hepg2_FDR025_sig_20231018_FINAL.txt", header = TRUE, sep = "\t", check.names = FALSE)
 
 # Convert gene signatures to a list of gene sets
 gene_list <- lapply(gene_signatures, as.character)

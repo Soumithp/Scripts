@@ -5,10 +5,10 @@ library(hdf5r)
 library(ggplot2)
 library(dplyr)
 library(pheatmap)
-setwd("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/")
+setwd("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/")
 
-scLiver_MP_signature <- read.delim("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/scLiverMP_sig_allcombined_wnodup.txt")
-counts <- Read10X_h5("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/hg38/hg38_filtered_feature_bc_matrix.h5")
+scLiver_MP_signature <- read.delim("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/scLiverMP_sig_allcombined_wnodup.txt")
+counts <- Read10X_h5("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/hg38/hg38_filtered_feature_bc_matrix.h5")
 df <- CreateSeuratObject(counts = counts)
 df[["percent.mt"]] <- PercentageFeatureSet(df, pattern = "^MT-")
 df <- subset(df, subset = nFeature_RNA > 200 & nFeature_RNA < 2500 & percent.mt < 10)
@@ -89,7 +89,7 @@ subset_df_new <- RunUMAP(subset_df_new, dims = 1:10)
 DimPlot(subset_df_new, reduction = "umap", pt.size = 3)
 
 
-scLiverMP_hepa_sig <- read.delim("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/DDR1hepg2_FDR025_sig_20231018_FINAL.txt")
+scLiverMP_hepa_sig <- read.delim("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/DDR1hepg2_FDR025_sig_20231018_FINAL.txt")
 
 
 signatures_hepatocytes = list()

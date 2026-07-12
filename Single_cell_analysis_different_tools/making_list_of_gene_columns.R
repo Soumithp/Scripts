@@ -1,9 +1,9 @@
 #making list from column 
-setwd("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki")
-gene_signatures <- read.table("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/scLiverMP_sig_allcombined_wnodup.txt", header = TRUE, sep = "\t", check.names = FALSE)
+setwd("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki")
+gene_signatures <- read.table("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/scLiverMP_sig_allcombined_wnodup.txt", header = TRUE, sep = "\t", check.names = FALSE)
 
 # Specify the output file path
-output_file <- "C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/scLiver_MP_allsign_wodup_list_format.txt"
+output_file <- "C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/scLiver_MP_allsign_wodup_list_format.txt"
 
 # Open the file connection
 file_conn <- file(output_file, "w")

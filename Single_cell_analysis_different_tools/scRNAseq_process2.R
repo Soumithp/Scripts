@@ -4,9 +4,9 @@ library(dplyr)
 library(openxlsx)
 library(cowplot)
 
-setwd("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki")
+setwd("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki")
 # Step 1: Read and preprocess the Seurat object
-svr_data <- Read10X_h5(filename = "C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/hg38/hg38_filtered_feature_bc_matrix.h5")
+svr_data <- Read10X_h5(filename = "C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/hg38/hg38_filtered_feature_bc_matrix.h5")
 svr.seurat.obj <- CreateSeuratObject(counts = svr_data, project = "Svr", min.cells = 3, min.features = 200)
 svr.seurat.obj[["percent.mt"]] <- PercentageFeatureSet(svr.seurat.obj, pattern = "^MT-")
 svr.seurat.obj <- subset(svr.seurat.obj, subset = nFeature_RNA > 200 & nFeature_RNA < 2500 & percent.mt < 10)
@@ -22,7 +22,7 @@ DimPlot(svr.seurat.obj, reduction = "umap", pt.size = 4)
 
 
 # Step 1: Read Gene Signatures
-gene_signatures <- read.table("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/scLiver_MP_signature.txt", header = TRUE, sep = "\t", check.names = FALSE)
+gene_signatures <- read.table("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/scLiver_MP_signature.txt", header = TRUE, sep = "\t", check.names = FALSE)
 
 # Convert gene signatures to a list of gene sets
 gene_list <- lapply(gene_signatures, as.character)
@@ -62,7 +62,7 @@ names(features_list) <- colnames(gene_signatures)
 
 
 # Step 1: Read Gene Signatures
-gene_signatures <- read.table("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/scLiverMP_Tcell_signature.txt", header = TRUE, sep = "\t", check.names = FALSE)
+gene_signatures <- read.table("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/scLiverMP_Tcell_signature.txt", header = TRUE, sep = "\t", check.names = FALSE)
 
 # Convert gene signatures to a list of gene sets
 gene_list <- lapply(gene_signatures, as.character)
@@ -350,7 +350,7 @@ DoHeatmap(svr.seurat.obj, features = unique(top5$gene)) +
 
 ##################common genes from gene signature
 # Step 4: Read the gene signatures and convert to a list of gene sets
-gene_signatures <- read.table("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/DDR1hepg2_FDR025_sig_20231018_FINAL.txt", header = TRUE, sep = "\t", check.names = FALSE)
+gene_signatures <- read.table("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/DDR1hepg2_FDR025_sig_20231018_FINAL.txt", header = TRUE, sep = "\t", check.names = FALSE)
 gene_list <- lapply(gene_signatures, as.character)
 features_list <- lapply(colnames(gene_signatures), function(x) gene_signatures[[x]])
 names(features_list) <- colnames(gene_signatures)

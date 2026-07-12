@@ -1,6 +1,6 @@
 # RStudio 2023.09.0+463 "Desert Sunflower" Release (b51c81cc303d4b52b010767e5b30438beb904641, 2023-09-25) for windows
 # Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) RStudio/2023.09.0+463 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36
-setwd("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/scRNAseq")
+setwd("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/scRNAseq")
 
 library(Seurat)
 library(tidyverse)
@@ -16,7 +16,7 @@ veh_data_df <- as.data.frame(as.matrix(Aggr_data))
 write.csv(veh_data_df, "snRNAseq_Aggre.csv", row.names = TRUE)
 
 #reading the filtered data
-veh_data<- Read10X_h5(filename= "C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/scRNAseq/Veh1/outs/filtered_feature_bc_matrix.h5")
+veh_data<- Read10X_h5(filename= "C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/scRNAseq/Veh1/outs/filtered_feature_bc_matrix.h5")
 
 #creating suerat object(non-normalized data)
 veh.seurat.obj<- CreateSeuratObject(counts= veh_data,  project = "Veh", min.cells= 3, min.features= 200)
@@ -110,7 +110,7 @@ rownames(veh.seurat.obj) <- toupper(rownames(veh.seurat.obj))
 head(rownames(veh.seurat.obj))
 
 # Assuming you have read your gene signatures into `gene_signatures` DataFrame
-gene_signatures <- read.table("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/scRNAseq/msZone_signature.txt", header = TRUE, sep= "\t", check.names = FALSE)
+gene_signatures <- read.table("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/scRNAseq/msZone_signature.txt", header = TRUE, sep= "\t", check.names = FALSE)
 
 # Convert the entire data frame to uppercase using base R
 gene_signatures <- data.frame(lapply(gene_signatures, toupper), stringsAsFactors = FALSE)
@@ -292,7 +292,7 @@ install.packages("scCATCH")
 library(scCATCH)
 
 # Load your gene signatures
-signature_data <- read.table("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/scRNAseq/msZone_signature.txt", header = TRUE, check.names = FALSE, row.names = 1)
+signature_data <- read.table("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/scRNAseq/msZone_signature.txt", header = TRUE, check.names = FALSE, row.names = 1)
 
 # Convert this data frame to a list where each element is a vector of gene names for a cell type
 gene_signatures <- lapply(signature_data, as.character)
@@ -584,7 +584,7 @@ write.csv(list_counts, "list_counts.csv", row.names = FALSE)
 ----------------------------------------
   
 # Read the CSV files
-cluster0_genes <- read.csv("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/scRNAseq/Veh1/outs/cluster1.csv", check.names = FALSE)  # Ensure 'check.names = FALSE' for special characters in column names
+cluster0_genes <- read.csv("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/scRNAseq/Veh1/outs/cluster1.csv", check.names = FALSE)  # Ensure 'check.names = FALSE' for special characters in column names
 
 # Assuming 'signature_markers' is a separate CSV file
 signature_markers <- read.csv("genesignature_naoto.csv")

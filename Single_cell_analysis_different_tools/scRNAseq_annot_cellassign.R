@@ -29,7 +29,7 @@ BiocManager::install('cellassign')
 
 install.packages("glue")
 
-setwd("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki")
+setwd("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki")
 
 source("cellassign.R")
 source("utils.R")
@@ -37,10 +37,10 @@ source("simulate.R")
 source("inference-tensorflow.R")
 
 # Set working directory
-setwd("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki")
+setwd("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki")
 
 # Step 1: Read and preprocess the Seurat object
-svr_data <- Read10X_h5(filename = "C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/hg38/hg38_filtered_feature_bc_matrix.h5")
+svr_data <- Read10X_h5(filename = "C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/hg38/hg38_filtered_feature_bc_matrix.h5")
 svr.seurat.obj <- CreateSeuratObject(counts = svr_data, project = "Svr", min.cells = 3, min.features = 200)
 svr.seurat.obj[["percent.mt"]] <- PercentageFeatureSet(svr.seurat.obj, pattern = "^MT-")
 VlnPlot(svr.seurat.obj, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3, pt.size = 0.1)
@@ -60,7 +60,7 @@ DimPlot(svr.seurat.obj, reduction = "umap")
 
 
 # Step 1: Read the gene signatures file
-gene_signatures <- read.table("C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/scLiverMP_sig_allcombined_wnodup.txt", 
+gene_signatures <- read.table("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/ev59_scRNAseq_hiroaki/scLiverMP_sig_allcombined_wnodup.txt", 
                               header = TRUE, sep = "\t", check.names = FALSE, stringsAsFactors = FALSE)
 
 # Step 2: Prepare a binary marker gene matrix
@@ -119,4 +119,4 @@ cell_annotations <- data.frame(
   Cell_Type = svr.seurat.obj$cellassign_labels
 )
 
-write.table(cell_annotations, "C:/Users/S226953/OneDrive - University of Texas Southwestern/Desktop/cell_annotations_cellassign.txt", sep = "\t", row.names = FALSE, quote = FALSE)
+write.table(cell_annotations, "C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/cell_annotations_cellassign.txt", sep = "\t", row.names = FALSE, quote = FALSE)

@@ -2,7 +2,7 @@
 
 ##################################################################################################
 module load spaceranger/1.3.0
-parentDir=/project/SCCC/Hoshida_lab/s226953/ST/
+parentDir=/project/SCCC/Hoshida_lab/soumith/ST/
 cd $parentDir
 
 spaceranger mkfastq --id=fastq \

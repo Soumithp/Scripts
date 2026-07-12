@@ -1,5 +1,5 @@
 
-setwd("C:/Users/s226953/OneDrive - University of Texas Southwestern/Desktop/PLScp_EGCG_CVC_05.30.2024/")
+setwd("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/PLScp_EGCG_CVC_05.30.2024/")
 ##############################################################################
 # 1) Load libraries
 ##############################################################################
@@ -48,14 +48,14 @@ read_gct <- function(gct_path) {
 ##############################################################################
 # 3.1) Read GCT: raw counts
 ##############################################################################
-gct_data <- read_gct("C:/Users/s226953/OneDrive - University of Texas Southwestern/Desktop/PLScp_EGCG_CVC_05.30.2024/PLScp_EGCG_CVC_Rawcountsmatrix.gct")
+gct_data <- read_gct("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/PLScp_EGCG_CVC_05.30.2024/PLScp_EGCG_CVC_Rawcountsmatrix.gct")
 counts   <- gct_data$counts  # Genes x Samples
 
 ##############################################################################
 # 3.2) Read metadata
 #     Expect columns: Sample, sex, treatment
 ##############################################################################
-meta_data <- read.table("C:/Users/s226953/OneDrive - University of Texas Southwestern/Desktop/PLScp_EGCG_CVC_05.30.2024/metadata.txt",
+meta_data <- read.table("C:/Users/soumith/OneDrive - University of Texas Southwestern/Desktop/PLScp_EGCG_CVC_05.30.2024/metadata.txt",
                         header=TRUE,
                         sep="\t",
                         stringsAsFactors=FALSE)
