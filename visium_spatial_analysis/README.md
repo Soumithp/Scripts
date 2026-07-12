@@ -34,12 +34,17 @@ regions. Plotted on tissue, they light up specific compartments:
 
 ![Top spatially variable genes](results/show_top_svg_spatial.png)
 
+**The same domains separate in UMAP space** — clusters are distinct in expression space too, so they
+reflect real populations, not just spatial smoothing:
+
+![UMAP of spatial domains](results/umap_leiden_umap.png)
+
 **Neighborhood enrichment** shows which domains sit next to each other more than expected — the spatial
 adjacency map of the tissue:
 
 ![Neighborhood enrichment](results/nhood_enrichment.png)
 
-(QC and the UMAP embedding are in `results/qc_metrics.png` and `results/umap_leiden_umap.png`.)
+(Spot QC metrics are in [`results/qc_metrics.png`](results/qc_metrics.png).)
 
 ## Files
 
